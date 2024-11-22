@@ -1,0 +1,491 @@
+{%
+if session['logged_in'] == True and session['acces'] == 'admin':
+
+%}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>E-Commande | Dashboard administrateur</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../static/assets/icon.png" />
+
+    <!-- Library / Plugin Css Build -->
+    <link rel="stylesheet" href="../static/assets/css/core/libs.min.css" />
+
+    <!-- Aos Animation Css -->
+    <link rel="stylesheet" href="../static/assets/vendor/aos/dist/aos.css" />
+
+    <!-- Hope Ui Design System Css -->
+    <link rel="stylesheet" href="../static/assets/css/hope-ui.min.css?v=2.0.0" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="../static/assets/css/custom.min.css?v=2.0.0" />
+
+    <!-- Dark Css -->
+    <link rel="stylesheet" href="../static/assets/css/dark.min.css" />
+
+    <!-- Customizer Css -->
+    <link rel="stylesheet" href="../static/assets/css/customizer.min.css" />
+
+    <!-- RTL Css -->
+    <link rel="stylesheet" href="../static/assets/css/rtl.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css">
+
+
+</head>
+
+<body class="  ">
+    <!-- loader Start -->
+    <div id="loading">
+        <div class="loader simple-loader">
+            <div class="loader-body"></div>
+        </div>
+    </div>
+    <!-- loader END -->
+
+    {%include 'includes/side2.html' %}
+    <main class="main-content">
+        <div class="position-relative iq-banner">
+            {%include 'includes/head2.html' %}
+            <div class="iq-navbar-header" style="height: 215px;">
+                <div class="container-fluid iq-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="flex-wrap d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h1>Hello {{session['prenom_employe']}}!</h1>
+                                    <p>Bienvenue sur votre dashboard d'administration. Vous y trouverez un resumé des
+                                        activités de votre etablissement</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="iq-header-img">
+                    <img src="../static/images/dashboard/top-header.png" alt="header"
+                        class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header1.png" alt="header"
+                        class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header2.png" alt="header"
+                        class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header3.png" alt="header"
+                        class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header4.png" alt="header"
+                        class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header5.png" alt="header"
+                        class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+                </div>
+            </div> <!-- Nav Header Component End -->
+            <!--Nav End-->
+        </div>
+        <div class="conatiner-fluid content-inner mt-n5 py-0">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="row row-cols-1">
+                        <div class="overflow-hidden d-slider1 ">
+                            <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-01"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-primary"
+                                                data-min-value="0" data-max-value="100" data-value="90"
+                                                data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Chiffre d'affaire</p>
+
+                                                {% if chiffre_affaire == None : %}
+                                                <h4 class="counter">O FCFA</h4>
+                                                {% else :%}
+
+                                                <h4 class="counter">{{chiffre_affaire}}</h4>
+                                                {%endif%}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="800">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-02"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-info"
+                                                data-min-value="0" data-max-value="100" data-value="80"
+                                                data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Non-validés</p>
+                                                {% if non_valide == None : %}
+                                                <h4 class="counter">O FCFA</h4>
+                                                {% else :%}
+                                                <h4 class="counter">{{non_valide}}</h4>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-03"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-primary"
+                                                data-min-value="0" data-max-value="100" data-value="70"
+                                                data-type="percent">
+                                                <!-- <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg> -->
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Commande enregistré</p>
+                                                <h4 class="counter">{{ventes}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1000">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-04"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-info"
+                                                data-min-value="0" data-max-value="100" data-value="60"
+                                                data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24px" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Commande en cours</p>
+                                                <h4 class="counter">{{no_ventes}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1100">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-05"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-primary"
+                                                data-min-value="0" data-max-value="{{nbre_employe}}"
+                                                data-value="{{nbre_employe}}" data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24px" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Nombre d'employés</p>
+                                                <h4 class="counter">{{nbre_employe}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1200">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-06"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-info"
+                                                data-min-value="0" data-max-value="{{nbre_employe}}"
+                                                data-value="{{actif}}" data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Employés actifs</p>
+                                                <h4 class="counter">{{actif}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <div class="swiper-button swiper-button-next"></div>
+                            <div class="swiper-button swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 col-lg-8">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="card" data-aos="fade-up" data-aos-delay="800">
+
+                                <div class="card-body">
+                                    <div id="bar-chart" class="d-main"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card" data-aos="fade-up" data-aos-delay="800">
+                                <div class="card-body">
+                                    <div id="area-chart" class="d-main"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Prediction -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Faire une prediction sur un autre jour
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{url_for('dashboard')}}" method="post">
+                                    <div class="form-group">
+                                        <label for="date" class="form-label">Date</label>
+                                        <input class="form-control" type="date" name="date" id="date"
+                                            placeholder="Choisir la date" required>
+                                    </div>
+                                    <div class="text-start">
+                                        <button type="button" class="btn btn-primary predire">Predire</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                            aria-label="Close">Fermer</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-4">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="card credit-card-widget" data-aos="fade-up" data-aos-delay="900">
+
+                                <div class="card-body">
+                                    <div class="mb-4" style="min-width: auto;">
+                                        <div class="flex-wrap d-flex-col justify-content-between">
+                                            <p class="text-info">Prediction des commande du jour</p>
+                                            <div style="display: flex;">
+                                                <h2 class="counter">{{predict_commande}}</h2>
+                                                <svg style="margin-left: 15px;" xmlns="http://www.w3.org/2000/svg"
+                                                    height="2em" viewBox="0 0 448 512">
+                                                    <path
+                                                        d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
+                                                </svg>
+
+                                            </div>
+
+                                            <div>
+                                                <button style="border: none; background-color: white;"
+                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                    <span class="badge bg-success rounded-pill">{{date}}</span>
+                                                </button>
+
+                                                <!-- <button class="btn btn-primary" style="height: 30px;">Predire</button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card credit-card-widget" data-aos="fade-up" data-aos-delay="900">
+
+                                <div class="card-body">
+                                    <div class="mb-4" style="min-width: auto;">
+                                        <div class="flex-wrap d-flex justify-content-between">
+                                            <h2 class="counter">{{chiffre_affaire_gobal}}</h2>
+                                            <div>
+                                                <span class="badge bg-success rounded-pill">{{commande_globale}}
+                                                    Commandes</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-info">Chiffre d'affaire gobale</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- <div class="card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="text-center card-body d-flex justify-content-around">
+                                    <div>
+                                        <h2 class="mb-2">750<small>K</small></h2>
+                                        <p class="mb-0 text-gray">Website Visitors</p>
+                                    </div>
+                                    <hr class="hr-vertial">
+                                    <div>
+                                        <h2 class="mb-2">7,500</h2>
+                                        <p class="mb-0 text-gray">New Customers</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                            <div  class="col-md-12 col-lg-12">
+                                <div class="card" data-aos="fade-up" data-aos-delay="800">
+                                    <div class="card-body">
+                                        <div id="chartEmployes" class="d-main"></div>
+                                    </div>
+                                </div>
+                            </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <a class="btn btn-fixed-end btn-warning btn-icon btn-setting" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <svg width="24" viewBox="0 0 24 24" class="animated-rotate icon-24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20.8064 7.62361L20.184 6.54352C19.6574 5.6296 18.4905 5.31432 17.5753 5.83872V5.83872C17.1397 6.09534 16.6198 6.16815 16.1305 6.04109C15.6411 5.91402 15.2224 5.59752 14.9666 5.16137C14.8021 4.88415 14.7137 4.56839 14.7103 4.24604V4.24604C14.7251 3.72922 14.5302 3.2284 14.1698 2.85767C13.8094 2.48694 13.3143 2.27786 12.7973 2.27808H11.5433C11.0367 2.27807 10.5511 2.47991 10.1938 2.83895C9.83644 3.19798 9.63693 3.68459 9.63937 4.19112V4.19112C9.62435 5.23693 8.77224 6.07681 7.72632 6.0767C7.40397 6.07336 7.08821 5.98494 6.81099 5.82041V5.82041C5.89582 5.29601 4.72887 5.61129 4.20229 6.52522L3.5341 7.62361C3.00817 8.53639 3.31916 9.70261 4.22975 10.2323V10.2323C4.82166 10.574 5.18629 11.2056 5.18629 11.8891C5.18629 12.5725 4.82166 13.2041 4.22975 13.5458V13.5458C3.32031 14.0719 3.00898 15.2353 3.5341 16.1454V16.1454L4.16568 17.2346C4.4124 17.6798 4.82636 18.0083 5.31595 18.1474C5.80554 18.2866 6.3304 18.2249 6.77438 17.976V17.976C7.21084 17.7213 7.73094 17.6516 8.2191 17.7822C8.70725 17.9128 9.12299 18.233 9.37392 18.6717C9.53845 18.9489 9.62686 19.2646 9.63021 19.587V19.587C9.63021 20.6435 10.4867 21.5 11.5433 21.5H12.7973C13.8502 21.5001 14.7053 20.6491 14.7103 19.5962V19.5962C14.7079 19.088 14.9086 18.6 15.2679 18.2407C15.6272 17.8814 16.1152 17.6807 16.6233 17.6831C16.9449 17.6917 17.2594 17.7798 17.5387 17.9394V17.9394C18.4515 18.4653 19.6177 18.1544 20.1474 17.2438V17.2438L20.8064 16.1454C21.0615 15.7075 21.1315 15.186 21.001 14.6964C20.8704 14.2067 20.55 13.7894 20.1108 13.5367V13.5367C19.6715 13.284 19.3511 12.8666 19.2206 12.3769C19.09 11.8873 19.16 11.3658 19.4151 10.928C19.581 10.6383 19.8211 10.3982 20.1108 10.2323V10.2323C21.0159 9.70289 21.3262 8.54349 20.8064 7.63277V7.63277V7.62361Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="12.1747" cy="11.8891" r="2.63616" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"></circle>
+        </svg>
+    </a>
+    {%include 'includes/wrap.html' %}
+    <!-- Library Bundle Script -->
+    <script src="../static/assets/js/core/libs.min.js"></script>
+
+    <!-- External Library Bundle Script -->
+    <script src="../static/assets/js/core/external.min.js"></script>
+
+    <!-- Widgetchart Script -->
+    <script src="../static/assets/js/charts/widgetcharts.js"></script>
+
+    <!-- mapchart Script -->
+    <script src="../static/assets/js/charts/vectore-chart.js"></script>
+    <script src="../static/assets/js/charts/dashboard.js"></script>
+
+    <!-- fslightbox Script -->
+    <script src="../static/assets/js/plugins/fslightbox.js"></script>
+
+    <!-- Settings Script -->
+    <script src="../static/assets/js/plugins/setting.js"></script>
+
+    <!-- Slider-tab Script -->
+    <script src="../static/assets/js/plugins/slider-tabs.js"></script>
+
+    <!-- Form Wizard Script -->
+    <script src="../static/assets/js/plugins/form-wizard.js"></script>
+
+    <!-- AOS Animation Plugin-->
+    <script src="../static/assets/vendor/aos/dist/aos.js"></script>
+
+    <!-- App Script -->
+    <script src="../static/assets/js/hope-ui.js" defer></script>
+
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../static/js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
+
+    <script type="text/javascript">
+        // Fonction pour gérer le clic sur les liens
+        function gestionClicLien(event) {
+            // Désactive tous les liens
+            var tousLesLiens = document.querySelectorAll('li a');
+            for (var i = 0; i < tousLesLiens.length; i++) {
+                tousLesLiens[i].classList.remove('active');
+            }
+
+            // Active le lien cliqué
+            event.target.classList.add('active');
+        }
+
+        // Ajoute un gestionnaire de clic à chaque lien
+        var tousLesLiens = document.querySelectorAll('li a');
+        for (var i = 0; i < tousLesLiens.length; i++) {
+            tousLesLiens[i].addEventListener('click', gestionClicLien);
+
+            // Ajoute la classe active pour le lien correspondant à la page actuellement visitée
+            if (window.location.href === tousLesLiens[i].href) {
+                tousLesLiens[i].classList.add('active');
+            }
+        }
+
+
+        var socket = io.connect('http://127.0.0.1:5000')
+
+        socket.on('dashboard', function (msg) {
+            //    alert('Connection established');
+            location.reload(true);
+        });
+
+        // socket.on('table_updated', function(message) {
+        //     alert('Table mise à jour: ' + message);
+        // });
+
+        // MODIFICATION
+        var that
+        $('.predire').on('click', function (e) {
+            that = this
+            var date = document.getElementById('date').value;
+            // Récupérer le mois et le jour
+            var date = new Date(date);
+            var mois = date.getMonth() + 1; // Les mois commencent à 0, donc on ajoute 1
+            var jour = date.getDate();
+            // alert('mois: ' + mois + 'jour'+jour);
+            $.ajax({
+                type: "POST",
+                url: "/get_predict",
+                contentType: "application/json",
+                data: JSON.stringify({ "mois": mois, "jour": jour }),
+                success: function (data) {
+                    if ('error' in data) {
+                        $('#user_info').text(data.error);
+                    } else {
+                        // alert(data['prediction']);
+                        Swal.fire({
+                            icon: 'success', // Icône de succès
+                            // title: 'Succès', // Titre de l'alerte
+                            text: 'Prédiction du '+document.getElementById('date').value+': '+data['prediction'] +' commandes', // Message de succès
+                            showConfirmButton: true, // Ne pas afficher le bouton de confirmation
+                            allowOutsideClick: true, // Permettre la fermeture en cliquant en dehors de l'alerte
+                            allowEscapeKey: true, // Permettre la fermeture en appuyant sur la touche Échap
+                            allowEnterKey: true, // Permettre la fermeture en appuyant sur la touche Entrée
+                            // timer: 2000 // Fermer automatiquement l'alerte après 2 secondes (2000 millisecondes)
+                        });
+
+                    }
+                }
+            });
+            e.preventDefault;
+        })
+    </script>
+</body>
+
+</html>
+{% else %}
+{%include 'includes/acces_refuse.html' %}
+
+{%endif%}

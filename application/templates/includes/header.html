@@ -1,0 +1,58 @@
+<header class="py-3 mb-3 border-bottom" style="justify-content: space-between; width: 90%;margin-left: 5%; margin-right: 5%; margin-top: 10px ;box-shadow: 0 0 10px -2px #cccbc8">
+  <div style="display: flex; flex-direction: row; justify-content: space-around;">
+
+    <!-- <img src="../../static/images/loginImage.jpg" alt="" width="40" height="32"> -->
+
+    <a href="{{url_for('interface_employe')}}" style="text-decoration: none; color: black;">
+      <div class="logo-main">
+        <div class="logo-normal">
+            <img src="../../static/assets/icon.png" alt="" width="100">
+        </div>
+        <!-- <div class="logo-mini">
+            <img src="../../static/assets/icon.png" alt="" width="30">
+        </div> -->
+    </div>
+    <!--logo End-->
+    </a>
+<ul class="sidebar-list">
+
+
+  <li class="sidebar-list-item">
+    <a href="{{url_for('menu_employe')}}" style="padding: 30% 30% 30% 30%;">Menu</a>
+  </li>
+  
+  <li class="sidebar-list-item" style="margin-left: 30px;">
+    <a href="{{url_for('commande_enregistrer')}}" style="padding: 15% 15% 15% 15%;">Historique</a>
+  </li>
+  <li class="sidebar-list-item" style="margin-left: 30px;">
+    <a href="{{url_for('hist_reservation')}}" style="padding: 15% 15% 15% 15%;">reservation</a>
+  </li>
+
+  <li class="sidebar-list-item" style="margin-left: 30px;" >
+    <a href="{{url_for('commande')}}" style="padding: 15% 15% 15% 15%;">Commande</a>
+  </li>
+</ul>
+    
+    <div class="d-flex align-items-center">
+      
+    
+
+      <div class="flex-shrink-0 dropdown">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../static/images/employe_image/{{session['image_employe']}}" alt="mdo" width="32" height="32"
+            class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+          <li><a class="dropdown-item" href="{{url_for('profile_employe')}}">Profil</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="{{url_for('logout')}}">Se deconnecter</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+

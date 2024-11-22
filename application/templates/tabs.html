@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+
+    <link rel="stylesheet" href="../static/css/commande.css">
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="tab_box">
+            <button class="tab_btn active">Home</button>
+
+            {% for categorie in categories%}
+            <button class="tab_btn">{{categorie.1}}</button>
+            {% endfor %}
+            
+            <div class="line"></div>
+        </div>
+        <div class="content_box">
+            <div class="content active">
+                <h2>Home</h2>
+                <p>
+                    Bienvenue dans le menu de prise de commande
+                </p>
+            </div>
+            {% for categorie in categories%}
+            <div class="content">
+                <h6 class="border-bottom pb-2 mb-0" style="font-weight: bolder; font-size: 25px;">{{categorie.1}}</h6>
+                <ul>
+                    {% for item in menu%}
+
+                    {%if item.4 == categorie.1 :%}
+                    <li style="list-style: none;">
+                        <div class="d-flex text-muted pt-3">
+                            <img src="../static/images/menu_image/{{item.3}}" alt="" width="45"
+                                style="border-radius: 50px;">
+                            <input class="form-check-input" name="item" type="checkbox" value="{{item.0}}"
+                                id="flexCheckDefault" style="padding: 15px; margin: 6px;">
+
+
+
+                            <p class="pb-3 mb-0 small lh-sm border-bottom">
+                                <strong class="d-block text-gray-dark">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{item.1}}
+                                    </label>
+                                </strong>
+                                {{item.2}} FCFA
+                            </p>
+                            <input class="form-control" style="margin-left: 10px; height: 60%; width: 100px;"
+                            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number"
+                            name="nbre" id="nbre" multiple>
+
+
+                        </div>
+                    </li>
+                    {%endif%}
+                    {% endfor%}
+                </ul>
+
+                <!-- <small class="d-block text-end mt-3">
+                <a href="#">All updates</a>
+            </small> -->
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</body>
+
+
+<style>
+    body{
+        background-color: #deeeff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container{
+        width: 100%;
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, .1);
+        border-radius: 20px;
+    }
+
+    .tab_box{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 2px solid rgba(229, 229, 229);
+        font-size: 18px;
+        font-weight: 600;
+        position: relative;
+
+    }
+
+    .tab_box .tab_btn{
+        font-size: 18px;
+        font-weight: 600;
+        color: #919191;
+        background: none;
+        border: none;
+        padding: 18px;
+        cursor: pointer;
+    }
+
+    .tab_box .tab_btn.active{
+        color: #7360ff;
+    }
+
+    .content_box{
+        padding: 20px;
+    }
+
+    .content_box .content{
+        display: none;
+        animation: moving .5s ease;
+    }
+
+    @keyframes moving{
+        from{
+            transform: translateX(50px);
+            opacity: 0;
+        }
+        to{
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+    .content_box .content.active{
+        display: block;
+    }
+
+    .content_box .content h2{
+        margin-bottom: 10px;
+    }
+
+    .line{
+        position: absolute;
+        top: 55px;
+        left: 17px;
+        width: 90px;
+        height: 5px;
+        background-color: #7360ff;
+        border-radius: 10px;
+        transition: all .3s ease-in-out;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+
+<script>
+    const tabs = document.querySelectorAll('.tab_btn')
+    const all_content = document.querySelectorAll('.content')
+
+    tabs.forEach((tab, index) =>{
+        tab.addEventListener('click', (e)=>{
+            tabs.forEach(tab=>{tab.classList.remove('active')});
+            tab.classList.add('active');
+
+            var line = document.querySelector('.line')
+            line.style.width = e.target.offsetWidth + "px";
+            line.style.left = e.target.offsetLeft + "px";
+
+            all_content.forEach(content=>{content.classList.remove('active')});
+            all_content[index].classList.add('active');
+
+
+        })
+    })
+
+</script>
+</html>

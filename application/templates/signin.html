@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>E-Commande | Connexion</title>
+
+   <!-- Favicon -->
+   <link rel="shortcut icon" href="../static/assets/icon.png" />
+
+   <!-- Library / Plugin Css Build -->
+   <link rel="stylesheet" href="../static/assets/css/core/libs.min.css" />
+
+
+   <!-- Hope Ui Design System Css -->
+   <link rel="stylesheet" href="../static/assets/css/hope-ui.min.css?v=2.0.0" />
+
+   <!-- Custom Css -->
+   <link rel="stylesheet" href="../static/assets/css/custom.min.css?v=2.0.0" />
+
+   <!-- Dark Css -->
+   <link rel="stylesheet" href="../static/assets/css/dark.min.css" />
+
+   <!-- Customizer Css -->
+   <link rel="stylesheet" href="../static/assets/css/customizer.min.css" />
+
+   <!-- RTL Css -->
+   <link rel="stylesheet" href="../static/assets/css/rtl.min.css" />
+   <!-- Animate.css -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+</head>
+
+<body class=" " data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0"
+   style="background-color:#efd807 !important;">
+   <div id="flash"></div>
+   <!-- loader Start -->
+   <div id="loading">
+      <div class="loader simple-loader">
+         <div class="loader-body"></div>
+      </div>
+   </div>
+   <!-- loader END -->
+
+   <div class="wrapper">
+      <section class="login-content">
+         <div class="row m-0 align-items-center bg-white vh-100">
+            <div class="col-md-6">
+               <div class="row justify-content-center">
+                  <div class="col-md-10">
+                     <div class="card card-transparent shadow-none d-flex justify-content-center mb-0 auth-card">
+                        <div class="card-body">
+                           <a href="../../dashboard/index.html" class="navbar-brand d-flex align-items-center mb-3">
+                              <!--Logo start-->
+                              <!--logo End-->
+
+                              <!--Logo start-->
+                              <div class="logo-main">
+                                 <div class="logo-normal">
+                                    <img src="../../static/assets/icon2.png" alt="" width="250">
+                                 </div>
+                                 <div class="logo-mini">
+                                    <img src="../../static/assets/icon2.png" alt="" width="150">
+                                 </div>
+                              </div>
+                              <!--logo End-->
+
+
+
+
+                              <!-- <h5 class="logo-title ms-3">E-Commande</h5> -->
+                           </a>
+                           <h2 class="mb-2 text-center">Se connecter</h2>
+                           <p class="text-center">Connectez-vous</p>
+                           {% if message %}
+                           <p style="color: red; font-weight: bolder;" id="erreur">{{message}}</p>
+                           {% endif %}
+                           <form action="{{ url_for('signin') }}" method="post" class="needs-validation" id="signin"
+                              novalidate>
+                              <div class="row">
+                                 <div class="col-lg-12">
+                                    <div class="form-group">
+                                       <label for="matricule" class="form-label">Matricule</label>
+                                       <input type="matricule" class="form-control" placeholder="Matricule"
+                                          id="matricule" name="matricule" required>
+                                       <div class="valid-feedback">
+                                          Bien!
+                                       </div>
+                                       <div class="invalid-feedback">
+                                          Veuillez saisir l'matricule
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-12">
+                                    <div class="form-group">
+                                       <label for="password" class="form-label">Password</label>
+                                       <input type="password" class="form-control" id="mdp" placeholder="Mot de passe"
+                                          name="password" required>
+                                       <div class="valid-feedback">
+                                          Bien!
+                                       </div>
+                                       <div class="invalid-feedback">
+                                          Veuillez saisir le mot de passe
+                                       </div>
+                                    </div>
+                                 </div>
+
+                              </div>
+                              <div class="d-flex justify-content-center">
+                                 <button type="submit" class="btn btn-primary">Se connecter</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden">
+               <img src="../static/images/signs.jpg" class="img-fluid gradient-main animated-scaleX" alt="images">
+            </div>
+         </div>
+      </section>
+   </div>
+
+   <!-- Library Bundle Script -->
+   <script src="../static/assets/js/core/libs.min.js"></script>
+
+   <!-- External Library Bundle Script -->
+   <script src="../static/assets/js/core/external.min.js"></script>
+
+   <!-- Widgetchart Script -->
+   <script src="../static/assets/js/charts/widgetcharts.js"></script>
+
+   <!-- mapchart Script -->
+   <script src="../static/assets/js/charts/vectore-chart.js"></script>
+   <script src="../static/assets/js/charts/dashboard.js"></script>
+
+   <!-- fslightbox Script -->
+   <script src="../static/assets/js/plugins/fslightbox.js"></script>
+
+   <!-- Settings Script -->
+   <script src="../static/assets/js/plugins/setting.js"></script>
+
+   <!-- Slider-tab Script -->
+   <script src="../static/assets/js/plugins/slider-tabs.js"></script>
+
+   <!-- Form Wizard Script -->
+   <script src="../static/assets/js/plugins/form-wizard.js"></script>
+
+   <!-- AOS Animation Plugin-->
+
+   <!-- App Script -->
+   <script src="../static/assets/js/hope-ui.js" defer></script>
+
+   <style>
+      /* Styles CSS pour la boîte de message */
+      #flash {
+         position: fixed;
+         top: 20px;
+         /* Ajustez la distance par rapport au haut de la page selon vos besoins */
+         right: 20px;
+         /* Ajustez la distance par rapport à la droite de la page selon vos besoins */
+         background-color: rgba(13, 226, 16, 0.4);
+         /* border: 1px solid #ccc; */
+         padding: 10px;
+         border-radius: 15px;
+         /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+         z-index: 9999;
+         /* Assurez-vous que la boîte apparaît au-dessus du contenu */
+         display: none;
+         /* Pour la cacher initialement */
+      }
+   </style>
+
+   <script>
+      $(function(){
+         document.getElementById("signin").addEventListener("submit", function (event) {
+         // event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+         var matricule = document.getElementById("matricule").value; // Correction: .value au lieu de .val
+         var mdp = document.getElementById("mdp").value; // Correction: .value au lieu de .val
+
+         if (matricule === '' || mdp === '') { // Correction: Utilisez || (OU) au lieu de && (ET)
+            event.preventDefault();
+         } else {
+            $('#flash').addClass('alert-info animate__animated animate__fadeIn');
+            $('#flash').html('<i class="fas fa-cog fa-spin"></i> Authentification...').fadeIn(300);
+         }
+      });
+
+
+
+      $('#matricule').on('keyup', function () {
+         $('#erreur').css('display', 'none');
+      });
+      $('#mdp').on('keyup', function () {
+         $('#erreur').css('display', 'none');
+      });
+      });
+   </script>
+
+</body>
+
+</html>

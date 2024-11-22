@@ -1,0 +1,325 @@
+{%
+    if session['logged_in'] == True and session['acces'] == 'employe':    
+
+%}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>E-Commande | Dashboard employé(e)</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../static/assets/icon.png" />
+
+    <!-- Library / Plugin Css Build -->
+    <link rel="stylesheet" href="../static/assets/css/core/libs.min.css" />
+
+    <!-- Aos Animation Css -->
+    <link rel="stylesheet" href="../static/assets/vendor/aos/dist/aos.css" />
+
+    <!-- Hope Ui Design System Css -->
+    <link rel="stylesheet" href="../static/assets/css/hope-ui.min.css?v=2.0.0" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="../static/assets/css/custom.min.css?v=2.0.0" />
+
+    <!-- Dark Css -->
+    <link rel="stylesheet" href="../static/assets/css/dark.min.css" />
+
+    <!-- Customizer Css -->
+    <link rel="stylesheet" href="../static/assets/css/customizer.min.css" />
+
+    <!-- RTL Css -->
+    <link rel="stylesheet" href="../static/assets/css/rtl.min.css" />
+  <!-- Custom styles for this template -->
+  <link href="../static/css/headers.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+</head>
+
+<body class="  ">
+    <!-- loader Start -->
+    <div id="loading">
+        <div class="loader simple-loader">
+            <div class="loader-body"></div>
+        </div>
+    </div>
+    <!-- loader END -->
+
+    {%include 'includes/header.html' %}
+    <main class="container">
+        <div class="position-relative iq-banner">
+            <div class="iq-navbar-header" style="height: 215px;">
+                <div class="container-fluid iq-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="flex-wrap d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h1>Bienvenue {{session['prenom_employe']}}</h1>
+                                    <p>Voici le recapulatif de votre activité d'aujourd'hui.</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="iq-header-img">
+                    <img src="../static/images/dashboard/top-header.png" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="../static/images/dashboard/top-header1.png" alt="header" class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="../static/images/dashboard/top-header2.png" alt="header" class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="../static/images/dashboard/top-header3.png" alt="header" class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="../static/images/dashboard/top-header4.png" alt="header" class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+                  <img src="../static/images/dashboard/top-header5.png" alt="header" class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+                </div>
+            </div> <!-- Nav Header Component End -->
+            <!--Nav End-->
+        </div>
+        
+        
+        <div class="conatiner-fluid content-inner mt-n5 py-0" id="pages">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="row row-cols-1">
+                        <div class="overflow-hidden d-slider1 ">
+                            <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-01"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-primary"
+                                                data-min-value="0" data-max-value="100" data-value="90"
+                                                data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Votre CA</p>
+                                            
+                                                {% if chiffre_affaire == None : %}
+                                                <h4 class="counter">O  FCFA</h4>
+                                                {% else :%}
+
+                                                <h4 class="counter">{{chiffre_affaire}}</h4>
+                                                {%endif%}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="800">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-02"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-info"
+                                                data-min-value="0" data-max-value="100" data-value="80"
+                                                data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">CA global</p>
+                                                {% if non_valide == None : %}
+                                                <h4 class="counter">O FCFA</h4>
+                                                {% else :%}
+                                                <h4 class="counter">{{non_valide}}</h4>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-03"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-primary"
+                                                data-min-value="0" data-max-value="{{no_ventes}}" data-value="{{ventes}}"
+                                                data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Vos commandes</p>
+                                                <h4 class="counter">{{ventes}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1000">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-04"
+                                                class="text-center circle-progress-01 circle-progress circle-progress-info"
+                                                data-min-value="0" data-max-value="100" data-value="60"
+                                                data-type="percent">
+                                                <svg class="card-slie-arrow icon-24" width="24px" viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Commande global</p>
+                                                <h4 class="counter">{{no_ventes}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                               
+                            </ul>
+                            <div class="swiper-button swiper-button-next"></div>
+                            <div class="swiper-button swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Historiques des commande</h4>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            
+                            
+                            <table id="datatable" class="table table-striped" data-toggle="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nom client</th>
+                                        <th>Date commande</th>
+                                        <th>Total commande</th>
+                                        <th>Numero table</th>
+                                        <th>Statut</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for commande in commandes %}
+                                    <tr>
+                                        <td>{{commande.1}}</td>
+                                        <td>{{commande.3}}</td>
+                                        <td>{{commande.6}} FCFA</td>
+
+                                        <td>{{commande.8}}</td>
+                                        {% if commande.7 :%}
+                                        
+                                        <td>
+                                            <div class="badge bg-success text-wrap" style="width: 4rem;">
+                                                Terminé
+                                            </div>
+
+                                        </td>
+                                        
+                                        {% else :%}
+                                        <td>
+                                            <div class="badge bg-danger text-wrap" style="width: 4rem;">
+                                                En cours
+                                            </div>
+                                        </td>
+                                        
+
+                                        {% endif %}
+                                        <td>
+                                            <div>
+
+                                                <a class="btn btn-sm btn-icon text-danger " data-bs-toggle="tooltip"
+                                                    href="../static/recu/{{commande.5}}"
+                                                    aria-label="Imprimer le recu"
+                                                    data-bs-original-title="Imprimer le recu" download>
+                                                    <span class="btn-inner">
+                                                        <span class="btn-inner">
+                                                            <svg class="icon-32" width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M8.92574 16.39H14.3119C14.7178 16.39 15.0545 16.05 15.0545 15.64C15.0545 15.23 14.7178 14.9 14.3119 14.9H8.92574C8.5198 14.9 8.18317 15.23 8.18317 15.64C8.18317 16.05 8.5198 16.39 8.92574 16.39ZM12.2723 9.9H8.92574C8.5198 9.9 8.18317 10.24 8.18317 10.65C8.18317 11.06 8.5198 11.39 8.92574 11.39H12.2723C12.6782 11.39 13.0149 11.06 13.0149 10.65C13.0149 10.24 12.6782 9.9 12.2723 9.9ZM19.3381 9.02561C19.5708 9.02292 19.8242 9.02 20.0545 9.02C20.302 9.02 20.5 9.22 20.5 9.47V17.51C20.5 19.99 18.5099 22 16.0545 22H8.17327C5.59901 22 3.5 19.89 3.5 17.29V6.51C3.5 4.03 5.5 2 7.96535 2H13.2525C13.5099 2 13.7079 2.21 13.7079 2.46V5.68C13.7079 7.51 15.203 9.01 17.0149 9.02C17.4381 9.02 17.8112 9.02316 18.1377 9.02593C18.3917 9.02809 18.6175 9.03 18.8168 9.03C18.9578 9.03 19.1405 9.02789 19.3381 9.02561ZM19.6111 7.566C18.7972 7.569 17.8378 7.566 17.1477 7.559C16.0527 7.559 15.1507 6.648 15.1507 5.542V2.906C15.1507 2.475 15.6685 2.261 15.9646 2.572C16.5004 3.13476 17.2368 3.90834 17.9699 4.67837C18.7009 5.44632 19.4286 6.21074 19.9507 6.759C20.2398 7.062 20.0279 7.565 19.6111 7.566Z"
+                                                                    fill="currentColor"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+    </main>
+    <a class="btn btn-fixed-end btn-warning btn-icon btn-setting" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <svg width="24" viewBox="0 0 24 24" class="animated-rotate icon-24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20.8064 7.62361L20.184 6.54352C19.6574 5.6296 18.4905 5.31432 17.5753 5.83872V5.83872C17.1397 6.09534 16.6198 6.16815 16.1305 6.04109C15.6411 5.91402 15.2224 5.59752 14.9666 5.16137C14.8021 4.88415 14.7137 4.56839 14.7103 4.24604V4.24604C14.7251 3.72922 14.5302 3.2284 14.1698 2.85767C13.8094 2.48694 13.3143 2.27786 12.7973 2.27808H11.5433C11.0367 2.27807 10.5511 2.47991 10.1938 2.83895C9.83644 3.19798 9.63693 3.68459 9.63937 4.19112V4.19112C9.62435 5.23693 8.77224 6.07681 7.72632 6.0767C7.40397 6.07336 7.08821 5.98494 6.81099 5.82041V5.82041C5.89582 5.29601 4.72887 5.61129 4.20229 6.52522L3.5341 7.62361C3.00817 8.53639 3.31916 9.70261 4.22975 10.2323V10.2323C4.82166 10.574 5.18629 11.2056 5.18629 11.8891C5.18629 12.5725 4.82166 13.2041 4.22975 13.5458V13.5458C3.32031 14.0719 3.00898 15.2353 3.5341 16.1454V16.1454L4.16568 17.2346C4.4124 17.6798 4.82636 18.0083 5.31595 18.1474C5.80554 18.2866 6.3304 18.2249 6.77438 17.976V17.976C7.21084 17.7213 7.73094 17.6516 8.2191 17.7822C8.70725 17.9128 9.12299 18.233 9.37392 18.6717C9.53845 18.9489 9.62686 19.2646 9.63021 19.587V19.587C9.63021 20.6435 10.4867 21.5 11.5433 21.5H12.7973C13.8502 21.5001 14.7053 20.6491 14.7103 19.5962V19.5962C14.7079 19.088 14.9086 18.6 15.2679 18.2407C15.6272 17.8814 16.1152 17.6807 16.6233 17.6831C16.9449 17.6917 17.2594 17.7798 17.5387 17.9394V17.9394C18.4515 18.4653 19.6177 18.1544 20.1474 17.2438V17.2438L20.8064 16.1454C21.0615 15.7075 21.1315 15.186 21.001 14.6964C20.8704 14.2067 20.55 13.7894 20.1108 13.5367V13.5367C19.6715 13.284 19.3511 12.8666 19.2206 12.3769C19.09 11.8873 19.16 11.3658 19.4151 10.928C19.581 10.6383 19.8211 10.3982 20.1108 10.2323V10.2323C21.0159 9.70289 21.3262 8.54349 20.8064 7.63277V7.63277V7.62361Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="12.1747" cy="11.8891" r="2.63616" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"></circle>
+        </svg>
+    </a>
+    {%include 'includes/wrap.html' %}
+    <!-- Library Bundle Script -->
+    <script src="../static/assets/js/core/libs.min.js"></script>
+
+    <!-- External Library Bundle Script -->
+    <script src="../static/assets/js/core/external.min.js"></script>
+
+    <!-- Widgetchart Script -->
+    <script src="../static/assets/js/charts/widgetcharts.js"></script>
+
+    <!-- mapchart Script -->
+    <script src="../static/assets/js/charts/vectore-chart.js"></script>
+    <script src="../static/assets/js/charts/dashboard.js"></script>
+
+    <!-- fslightbox Script -->
+    <script src="../static/assets/js/plugins/fslightbox.js"></script>
+
+    <!-- Settings Script -->
+    <script src="../static/assets/js/plugins/setting.js"></script>
+
+    <!-- Slider-tab Script -->
+    <script src="../static/assets/js/plugins/slider-tabs.js"></script>
+
+    <!-- Form Wizard Script -->
+    <script src="../static/assets/js/plugins/form-wizard.js"></script>
+
+    <!-- AOS Animation Plugin-->
+    <script src="../static/assets/vendor/aos/dist/aos.js"></script>
+
+    <!-- App Script -->
+    <script src="../static/assets/js/hope-ui.js" defer></script>
+
+    <!-- real_time_time -->
+    <script src="../static/js/real_time.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+
+
+<!-- <script>
+    setInterval('loadpages', 500);
+    function loadpages() {
+        $('#pages').load('../routes.py');
+    }
+</script> -->
+</body>
+
+</html>
+{% else %}
+{%include 'includes/acces_refuse.html' %}
+{%endif%}

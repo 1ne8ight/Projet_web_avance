@@ -1,0 +1,301 @@
+{%
+    if session['logged_in'] == True and session['acces'] == 'admin':    
+
+%}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>E-Commande | Ajouter un nouvel employé(e)</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../static/assets/icon.png" />
+
+    <!-- Library / Plugin Css Build -->
+    <link rel="stylesheet" href="../static/assets/css/core/libs.min.css" />
+
+
+    <!-- Hope Ui Design System Css -->
+    <link rel="stylesheet" href="../static/assets/css/hope-ui.min.css?v=2.0.0" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="../static/assets/css/custom.min.css?v=2.0.0" />
+
+    <!-- Dark Css -->
+    <link rel="stylesheet" href="../static/assets/css/dark.min.css" />
+
+    <!-- Customizer Css -->
+    <link rel="stylesheet" href="../static/assets/css/customizer.min.css" />
+
+    <!-- RTL Css -->
+    <link rel="stylesheet" href="../static/assets/css/rtl.min.css" />
+
+
+</head>
+
+<body class="  ">
+    <!-- loader Start -->
+    <div id="loading">
+        <div class="loader simple-loader">
+            <div class="loader-body"></div>
+        </div>
+    </div>
+    <!-- loader END -->
+    {%include 'includes/side2.html' %}
+    <main class="main-content">
+        <div class="position-relative iq-banner">
+            <!--Nav Start-->
+            {%include 'includes/head2.html' %}
+            <!-- Nav Header Component Start -->
+            <div class="iq-navbar-header" style="height: 215px;">
+                <div class="container-fluid iq-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="flex-wrap d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h1>Nouvel employé??</h1>
+                                  <p>Vous pourrez via cette section enregistrer un nouvelle employé dans le systeme.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="iq-header-img">
+                    <img src="../static/images/dashboard/top-header.png" alt="header"
+                        class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header1.png" alt="header"
+                        class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header2.png" alt="header"
+                        class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header3.png" alt="header"
+                        class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header4.png" alt="header"
+                        class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+                    <img src="../static/images/dashboard/top-header5.png" alt="header"
+                        class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+                </div>
+            </div> <!-- Nav Header Component End -->
+            <!--Nav End-->
+        </div>
+        
+        <div class="conatiner-fluid content-inner mt-n5 py-0">
+            <div>
+                <div class="row">
+                    <div class="col-xl col-lg">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <div class="header-title">
+                                    <h4 class="card-title">Information du nouvel employé</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="new-user-info">
+                                    <form class="row g-3 needs-validation" action="{{url_for('AjouterEmploye')}}" method="post"  enctype="multipart/form-data" novalidate>
+                                        <!-- Nom Prenom Email -->
+                                        <div class="col-md-4">
+                                            <label for="validationCustom01" class="form-label">Nom</label>
+                                            <input type="text" class="form-control" id="validationCustom01" name="nom" required>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Veuillez saisir votre nom.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="validationCustom02" class="form-label">Prenom</label>
+                                            <input type="text" class="form-control" id="validationCustom02" name="prenom" required>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Veuillez saisir votre prenom.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="validationCustomUsername" class="form-label">Email</label>
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                                <input type="email" class="form-control" id="validationCustomUsername"
+                                                    aria-describedby="inputGroupPrepend" name="email" required>
+                                                <div class="invalid-feedback">
+                                                    Veuillez saisir votre Email.
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Poste N°telephone Ville -->
+                                        <div class="col-md-4">
+                                            <label for="validationCustom01" class="form-label">Poste</label>
+                                            <select name="poste" class="selectpicker form-control" id="validationCustom01" name="poste" required data-style="py-0">
+                                                <option selected value="">Choisir le poste</option>
+                                                <option>Administrateur</option>
+                                                <option>Serveur(se)</option>
+                                                <option>Cuisinier(re)</option>
+                                                
+                                            </select>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Veuillez saisir le Poste.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="validationCustom02" class="form-label">N°Telephone</label>
+                                            <input type="tel" class="form-control" id="validationCustom02" name="telephone" required>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Veuillez saisir le N°Telephone.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="validationCustomUsername" class="form-label">Ville</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control" id="validationCustomUsername"
+                                                    aria-describedby="inputGroupPrepend" name="ville" required>
+                                                    <div class="valid-feedback">
+                                                        Bien!
+                                                    </div>
+                                                <div class="invalid-feedback">
+                                                    Veuillez saisir la Ville.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Date de naissance photo -->
+                                        <div class="col-md-4">
+                                            <label for="validationCustom03" class="form-label">Date de naissance</label>
+                                            <input type="date" class="form-control" id="validationCustom03" name="date_naissance" required>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Veuillez saisir la date de naissance.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <label for="validationCustom03" class="form-label">Photo</label>
+                                            <input class="form-control" type="file" name="photo" id="validationCustom03" required>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Choisir une photo
+                                            </div>
+                                        </div>
+                        
+                                        <div class="col-md-6">
+                                            <label for="validationCustom03" class="form-label">Mot de passe</label>
+                                            <input type="password" class="form-control" id="validationCustom03" name="mdp" required>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Veuillez saisir le mot de passe.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="validationCustom05" class="form-label">Confirmer</label>
+                                            <input type="password" class="form-control" id="validationCustom05" name="mdpC"  required>
+                                            <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Confirmez
+                                            </div>
+                                        </div>
+                        
+                                        <div class="col-md-3">
+                                            <label for="validationCustom05" class="form-label">Acces</label>
+                                            <select class="form-select"  id="acces" name="acces" aria-label="Default select example" required>
+                                                <option selected value="">Choisir l'acces</option>
+                                                <option value="admin">admin</option>
+                                                <option value="employe">employe</option>
+                                              </select>
+                                              <div class="valid-feedback">
+                                                Bien!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Choisir l'acces.
+                                            </div>
+                                        </div>
+                                        <div style="text-align: end; margin-bottom: 5px;">
+                                            <div class="d-grid gap-2 d-md-block">
+                                                <button class="btn btn-primary" type="submit">Enregistrer</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {%include 'includes/wrap.html' %}
+
+    <!-- Library Bundle Script -->
+    <script src="../static/assets/js/core/libs.min.js"></script>
+
+    <!-- External Library Bundle Script -->
+    <script src="../static/assets/js/core/external.min.js"></script>
+
+    <!-- Widgetchart Script -->
+    <script src="../static/assets/js/charts/widgetcharts.js"></script>
+
+    <!-- mapchart Script -->
+    <script src="../static/assets/js/charts/vectore-chart.js"></script>
+    <script src="../static/assets/js/charts/dashboard.js"></script>
+
+    <!-- fslightbox Script -->
+    <script src="../static/assets/js/plugins/fslightbox.js"></script>
+
+    <!-- Settings Script -->
+    <script src="../static/assets/js/plugins/setting.js"></script>
+
+    <!-- Slider-tab Script -->
+    <script src="../static/assets/js/plugins/slider-tabs.js"></script>
+
+    <!-- Form Wizard Script -->
+    <script src="../static/assets/js/plugins/form-wizard.js"></script>
+
+    <!-- AOS Animation Plugin-->
+
+    <!-- App Script -->
+    <script src="../static/assets/js/hope-ui.js" defer></script>
+
+    <script>
+        // Fonction pour gérer le clic sur les liens
+        function gestionClicLien(event) {
+            // Désactive tous les liens
+            var tousLesLiens = document.querySelectorAll('li a');
+            for (var i = 0; i < tousLesLiens.length; i++) {
+                tousLesLiens[i].classList.remove('active');
+            }
+        
+            // Active le lien cliqué
+            event.target.classList.add('active');
+        }
+        
+        // Ajoute un gestionnaire de clic à chaque lien
+        var tousLesLiens = document.querySelectorAll('li a');
+        for (var i = 0; i < tousLesLiens.length; i++) {
+            tousLesLiens[i].addEventListener('click', gestionClicLien);
+            
+            // Ajoute la classe active pour le lien correspondant à la page actuellement visitée
+            if (window.location.href === tousLesLiens[i].href) {
+                tousLesLiens[i].classList.add('active');
+            }
+        }
+        </script>
+
+</body>
+
+</html>
+{%endif%}

@@ -1,0 +1,64 @@
+FIGURE 1.1 : Chez Samer 	6
+FIGURE 1.2 : Texas Grills 	6
+FIGURE 1.3 : Mr. chawarma 	6 
+FIGURE 1.4 : Système de point de vente 	6 
+FIGURE 1.5 : Glovo 	7
+FIGURE 1.6 : Jumia Food 	7
+FIGURE 1.7 : YangoDeli 	7
+
+FIGURE 2.1 : UML 	13
+FIGURE 2.2 : Diagramme de cas d’utilisation de E-Commande 	14
+FIGURE 2.3 : Diagramme de classe de E-Commande 	16
+FIGURE 2.4 : Diagramme de séquence de connexion de E-Commande 	17
+FIGURE 2.5 : Diagramme de séquence d’enregistrement de commande 	18
+FIGURE 2.6 : Diagramme de séquence de déconnexion de E-Commande 	18
+FIGURE 2.7 : Diagramme de séquence de réservation de E-Commande 	19
+FIGURE 2.8 : Scenario de prise de commande avec E-Commande 	20
+FIGURE 2.9 : Méthodologie Agile 	21
+FIGURE 2.10 : HTML5 & CSS3 	21
+FIGURE 2.11 : JavaScript 	22
+FIGURE 2.12 : Bootstrap 	23
+FIGURE 2.13 : Apexcharts 	24
+FIGURE 2.14 : Python 	25
+FIGURE 2.15 : Flask 	25
+FIGURE 2.16 : MYSQL 	26
+FIGURE 2.17 : SQLAlchemy 	27
+FIGURE 2.18 : FPDF 	27
+FIGURE 2.19 : Passlib 	28
+FIGURE 2.20 : Flask SocketIo 	28
+FIGURE 2.21 : Scikit-Learn 	29
+FIGURE 2.22 : Pandas 	29
+FIGURE 2.23 : Numpy 	30
+FIGURE 2.24 : Joblib 	30
+FIGURE 2.25 : Logo VsCode 	30
+FIGURE 2.26 : Logo StarUML	30
+FIGURE 2.27 : Logo Git et Github 	30
+FIGURE 2.28 : Logo DevServer 	31
+FIGURE 2.29 : Logo Jupyter 	31
+FIGURE 2.30 : Architecture MVC 	32
+FIGURE 2.31 : Pseudo algorithme de prédiction des commandes 	34
+
+FIGURE 3.1 : Page de connexion 	39
+FIGURE 3.2 : 404 	39
+FIGURE 3.3 : Dashboard administrateur 	40
+FIGURE 3.4 : Menu 	41
+FIGURE 3.5: Ajouter menu 	41
+FIGURE 3.6 : Ajouter catégorie 	42
+FIGURE 3.7 : Table 	42
+FIGURE 3.8 : Ajouter table 	43
+FIGURE 3.9 : Historiques des commandes administrateur 	43
+FIGURE 3.10 : Employé(e) 	44
+FIGURE 3.11 : Ajouter employé(e) 	44
+FIGURE 3.12 : Réservation 	45
+FIGURE 3.13 : Profil 	45
+FIGURE 3.14 : Dashboard employé(e) 	46
+FIGURE 3.15 : Menu 	47
+FIGURE 3.16 : Table 	47
+FIGURE 3.17 : Historique des commandes employé(e) 	48
+FIGURE 3.18 : Historique de réservation 	48
+FIGURE 3.19 : Enregistrer commande 	49
+FIGURE 3.20 : Cuisine 	50 
+FIGURE 3.21 : Client 	50
+FIGURE 3.22 : Réservation client 	51
+FIGURE 3.23 : Facture de commande 	52
+FIGURE 3.24 : Reçu de réservation 	53

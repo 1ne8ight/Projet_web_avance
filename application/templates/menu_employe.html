@@ -1,0 +1,225 @@
+{%
+   if session['logged_in'] == True and session['acces'] == 'employe':    
+
+%}
+
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>E-Commande | Menu & Tables</title>
+
+   <!-- Favicon -->
+   <link rel="shortcut icon" href="../static/assets/icon.png" />
+
+   <!-- Library / Plugin Css Build -->
+   <link rel="stylesheet" href="../static/assets/css/core/libs.min.css" />
+
+
+   <!-- Hope Ui Design System Css -->
+   <link rel="stylesheet" href="../static/assets/css/hope-ui.min.css?v=2.0.0" />
+
+   <!-- Custom Css -->
+   <link rel="stylesheet" href="../static/assets/css/custom.min.css?v=2.0.0" />
+
+   <!-- Dark Css -->
+   <link rel="stylesheet" href="../static/assets/css/dark.min.css" />
+
+   <!-- Customizer Css -->
+   <link rel="stylesheet" href="../static/assets/css/customizer.min.css" />
+
+   <!-- RTL Css -->
+   <link rel="stylesheet" href="../static/assets/css/rtl.min.css" />
+   <link href="../static/css/headers.css" rel="stylesheet">
+
+
+</head>
+
+<body class="  ">
+       <!-- loader Start -->
+       <div id="loading">
+         <div class="loader simple-loader">
+             <div class="loader-body"></div>
+         </div>
+     </div>
+     <!-- loader END -->
+   {%include 'includes/header.html' %}
+   <main class="container">
+      <div class="position-relative iq-banner">
+         <div class="iq-navbar-header" style="height: 215px;">
+            <div class="container-fluid iq-container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="flex-wrap d-flex justify-content-between align-items-center">
+                        <div>
+                           <h1>Menu & Tables</h1>
+                           <p>Vous trouverez dans cette section le menu et les tables du restaurant.</p>
+                        </div>
+                        <div>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="iq-header-img">
+               <img src="../static/images/dashboard/top-header.png" alt="header"
+                  class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+               <img src="../static/images/dashboard/top-header1.png" alt="header"
+                  class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+               <img src="../static/images/dashboard/top-header2.png" alt="header"
+                  class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+               <img src="../static/images/dashboard/top-header3.png" alt="header"
+                  class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+               <img src="../static/images/dashboard/top-header4.png" alt="header"
+                  class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+               <img src="../static/images/dashboard/top-header5.png" alt="header"
+                  class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
+            </div>
+         </div> <!-- Nav Header Component End -->
+         <!--Nav End-->
+      </div>
+      <div class="conatiner-fluid content-inner mt-n5 py-0">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="card">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Menu</h4>
+                     </div>
+                  </div>
+
+                  <div class="card-body">
+                     <div class="table-responsive">
+                        <table id="datatable" class="table table-striped" data-toggle="data-table">
+                           <thead>
+                              <tr>
+                                 <th>Image</th>
+                                 <th>Nom du plat</th>
+                                 <th>Prix</th>
+                                 <th>Categorie</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {% for menu in menus %}
+                              <tr>
+                                 <td><img src="../static/images/menu_image/{{menu.3}}" alt=""></td>
+                                 <td>{{menu.1}}</td>
+                                 <td>{{menu.2}} FCFA</td>
+                                 <td>{{menu.4}}</td>
+
+                              </tr>
+                              {% endfor %}
+                           </tbody>
+
+                        </table>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+
+
+            <div class="col-sm-12">
+               <div class="card">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Tables</h4>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <div class="table-responsive">
+                        <table id="datatable" class="table table-striped" data-toggle="data-table">
+                           <thead>
+                              <tr>
+                                 <th>N°Table</th>
+                                 <th>Nombre de place</th>
+                                 <th>Occupation</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {% for table in tables %}
+                              <tr>
+                                 <td>{{table.1}}</td>
+                                 <td>{{table.2}}</td>
+                                 {% if table.3 == 0 :%}
+                                 <td>
+                                    <div class="badge bg-success text-wrap" style="width: 4rem;">
+                                       Libre
+                                    </div>
+
+                                 </td>
+                                 {% else : %}
+                                 <td>
+                                    <div class="badge bg-danger text-wrap" style="width: 4rem;">
+                                       Occupé
+                                    </div>
+                                 </td>
+                                 {%endif%}  
+                              </tr>
+                              {% endfor %}
+                           </tbody>
+
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </main>
+
+   {%include 'includes/wrap.html' %}
+
+   <!-- Library Bundle Script -->
+   <script src="../static/assets/js/core/libs.min.js"></script>
+
+   <!-- External Library Bundle Script -->
+   <script src="../static/assets/js/core/external.min.js"></script>
+
+   <!-- Widgetchart Script -->
+   <script src="../static/assets/js/charts/widgetcharts.js"></script>
+
+   <!-- mapchart Script -->
+   <script src="../static/assets/js/charts/vectore-chart.js"></script>
+   <script src="../static/assets/js/charts/dashboard.js"></script>
+
+   <!-- fslightbox Script -->
+   <script src="../static/assets/js/plugins/fslightbox.js"></script>
+
+   <!-- Settings Script -->
+   <script src="../static/assets/js/plugins/setting.js"></script>
+
+   <!-- Slider-tab Script -->
+   <script src="../static/assets/js/plugins/slider-tabs.js"></script>
+
+   <!-- Form Wizard Script -->
+   <script src="../static/assets/js/plugins/form-wizard.js"></script>
+
+   <!-- AOS Animation Plugin-->
+
+   <!-- App Script -->
+   <script src="../static/assets/js/hope-ui.js" defer></script>
+   <script src="../static/js/header.js"></script>
+
+   <style>
+      td img {
+         width: 36px;
+         height: 36px;
+         margin-right: .5rem;
+         border-radius: 50%;
+
+         vertical-align: middle;
+      }
+   </style>
+
+</body>
+
+</html>
+{% else %}
+{%include 'includes/acces_refuse.html' %}
+{%endif%}

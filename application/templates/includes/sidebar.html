@@ -1,0 +1,89 @@
+<!-- Sidebar -->
+<aside id="sidebar">
+  <div class="sidebar-title">
+    <div class="sidebar-brand">
+      <span class="material-icons-outlined">inventory</span> E-Commande
+    </div>
+      <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+  </div>
+
+  <ul class="sidebar-list">
+    <li class="sidebar-list-item">
+      <a href="{{url_for('dashboard')}}">
+        <span class="material-icons-outlined">dashboard</span> Dashboard
+      </a>
+    </li>
+
+    <li class="sidebar-list-item">
+      <a href="{{url_for('employe')}}">
+        <span class="material-icons-outlined">person</span>Employes 
+      </a>
+    </li>
+    <li class="sidebar-list-item">  
+      <a href="{{url_for('menu')}}">
+        <span class="material-icons-outlined">
+          menu_book
+          </span> Menus
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{{url_for('tables')}}">
+        <span class="material-icons-outlined">table_restaurant</span> Tables
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="{{url_for('commande_admin')}}">
+        <span class="material-icons-outlined">shopping_cart</span> Commandes
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="#">
+        <span class="material-icons-outlined">poll</span> Reports
+      </a>
+    </li>
+    <li class="sidebar-list-item">
+      <a href="#">
+        <span class="material-icons-outlined">settings</span> Settings
+      </a>
+    </li>
+  </ul>
+</aside>
+<!-- End Sidebar -->
+
+<style>
+  .active-link {
+      color: black; 
+      background-color: #FF5733;/* Couleur pour les liens actifs */
+      color:  #FFFFFF;
+      padding-left: 25%;
+      padding-right: 20%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      border-radius: 20px;
+      
+      };
+</style> 
+<script>
+  // Fonction pour gérer le clic sur les liens
+  function gestionClicLien(event) {
+      // Désactive tous les liens
+      var tousLesLiens = document.querySelectorAll('li a');
+      for (var i = 0; i < tousLesLiens.length; i++) {
+          tousLesLiens[i].classList.remove('active-link');
+      }
+
+      // Active le lien cliqué
+      event.target.classList.add('active-link');
+  }
+
+  // Ajoute un gestionnaire de clic à chaque lien
+  var tousLesLiens = document.querySelectorAll('li a');
+  for (var i = 0; i < tousLesLiens.length; i++) {
+      tousLesLiens[i].addEventListener('click', gestionClicLien);
+      
+      // Ajoute la classe active-link pour le lien correspondant à la page actuellement visitée
+      if (window.location.href === tousLesLiens[i].href) {
+          tousLesLiens[i].classList.add('active-link');
+      }
+  }
+</script>
